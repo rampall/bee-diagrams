@@ -1,0 +1,58 @@
+#title: types-of-bee-nodes
+#.box: visual=database fill=#dd7200 dashed
+#.database: visual=database fill=#dd7200
+#.note: visual=note fill=#dd7200
+#font: IBM Plex Mono			
+#.hide: visual=hidden
+#.dl: visual=database fill=#dd720033
+#.glass: fill=transparent bold
+#background: transparent
+
+[<glass> FULL NODE 
+    |[<database> bee mode: full-node 
+        | storer, staking peer
+    ]
+	|✅Decentralized
+	|✅PSS Messaging
+	|✅Download
+	|✅Upload
+	|✅Earn BZZ
+]                   
+	
+[<glass> ULTRA-LIGHT NODE 
+    |[<dl> bee mode: ultra-light 
+        | free-riding peer
+    ]
+	|✅Decentralized
+	|✅PSS Messaging (*receive)
+	|✅Download (*free/pay in BZZ)
+	|✖ Upload
+	|✖ Earn BZZ
+]
+			                    
+[<glass>LIGHT NODE
+    |[<dl> bee mode: light
+        | paying peer
+    ]
+	|✅Decentralized
+	|✅PSS Messaging
+	|✅Download (*free/pay in BZZ)
+	|✅Upload (pay in BZZ)
+	|✖ Earn BZZ
+]
+
+[FULL NODE]->[<glass>Bee Installers
+	|CLI: ethersphere/bee
+	|Docker: ethersphere/bee:stable
+]
+
+[ULTRA-LIGHT NODE]->[<glass>Swarm Desktop|desktop.ethswarm.org]
+[LIGHT NODE]->[Swarm Desktop]
+
+[Swarm Desktop]<--[<actor>Creators]
+[Swarm Desktop]<--[<actor>Developers]
+[Bee Installers]<--[<actor>Node Operators]
+[Bee Installers]<--[Developers]
+[Creators]--[<note>Swarm Storage Consumers]
+[Developers]--[Swarm Storage Consumers]
+[Node Operators]--[<note>Decentralized Storage Providers]
